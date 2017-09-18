@@ -154,7 +154,6 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post->title = $request->input('title');
-        $post->country_id = $request->input('country_id');
         $post->body = $request->input('body');
         $post->user_id = auth()->id();
 

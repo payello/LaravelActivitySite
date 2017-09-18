@@ -22,6 +22,7 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
+
                             </div>
                         </div>
 
@@ -49,6 +50,8 @@
                             </div>
                         </div>
 
+
+
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -60,6 +63,14 @@
                                 </a>
                             </div>
                         </div>
+                        <div>
+                          <ul class="pager">
+                            <li><a href="{{ url('login') }}" class="nav-link">Login</a></li>
+                            <li><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                            <li><a href="{{route('posts.index')}}" class="nav-link">Posts</a></li>
+                          </ul>
+                        </div>
+                    
                     </form>
                 </div>
             </div>

@@ -68,6 +68,11 @@
                                 </button>
                             </div>
                         </div>
+                        <ul class="pager">
+                          <li><a href="{{ url('login') }}" class="nav-link">Login</a></li>
+                          <li><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                          <li><a href="{{route('posts.index')}}" class="nav-link">Posts</a></li>
+                        </ul>
                     </form>
                 </div>
             </div>

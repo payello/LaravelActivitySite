@@ -23,6 +23,9 @@
   {{ Form::label('activities', 'Activities: ', ['class'=>'form-spacing-top']) }}
   {{ Form::select('activities[]', $activities, null, ['class'=>'form-control select2-multi', 'multiple'=>'multiple']) }}
 
+  {{Form::label('countries', 'Country: ')}}
+  {{ Form::select('countries[]', $countries, null,['class'=>'form-control']) }}
+
   {{ Form::label('image', 'Change Image', ['class'=>'form-spacing-top']) }}
   {{Form::file('image')}}
 
