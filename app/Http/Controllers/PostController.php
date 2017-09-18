@@ -72,7 +72,6 @@ class PostController extends Controller
       'body' =>request('body'),
       'country_id'=>request('country_id'),
       'user_id' => auth()->id(),
-      'image'=>request('image')
 
     ]);
 
