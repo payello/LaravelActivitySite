@@ -26,7 +26,7 @@ class Photos extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('photo');
+            $table->dropColumn('image');
         });
     }
 }
