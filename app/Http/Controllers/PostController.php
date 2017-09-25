@@ -153,12 +153,6 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        $this->validate($request, array(
-          'title'=> 'required',
-          'body'=>'required',
-          'country_id'=>'required|integer',
-          'image'=>'image'
-        ));
 
         $post->title = $request->input('title');
         $post->body = $request->input('body');
