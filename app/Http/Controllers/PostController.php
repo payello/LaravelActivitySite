@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
+use App\Country;
 use App\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Activity;
-use Session;
 use Image;
+use Session;
 use Storage;
-use App\Country;
+
 
 class PostController extends Controller
 {
@@ -17,6 +18,7 @@ class PostController extends Controller
     'title',
     'body'
   ];
+
   public function __contruct()
     {
         $this->middleware('auth')->except(['index', 'show']);
@@ -57,6 +59,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
       $countries = Country::all();
+      $activities = Activity::all();
 
       // Create a new post using the request data
       // Save it to the database
@@ -64,6 +67,7 @@ class PostController extends Controller
       'title' => 'required',
       'body' => 'required',
       'country_id'=>'required|integer',
+      'image'=> 'image'
 
       ));
 
@@ -88,9 +92,6 @@ class PostController extends Controller
 
       $post->activities()->sync($request->activities, false);
 
-      $activities = Activity::all();
-
-      $countries = Country::all();
 
       // And then redirect to somewhere in  application
       return redirect()->route('posts.show', $post->id);
@@ -151,6 +152,13 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::find($id);
+
+        $this->validate($request, array(
+          'title'=> 'required',
+          'body'=>'required',
+          'country_id'=>'required|integer',
+          'image'=>'image'
+        ));
 
         $post->title = $request->input('title');
         $post->body = $request->input('body');

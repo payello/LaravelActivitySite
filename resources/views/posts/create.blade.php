@@ -38,10 +38,8 @@
     @endforeach
 
 </select>
-<div class="">
   {{ Form::label('image', 'Upload image: ')}}
   {{ Form::file('image') }}
-</div>
 
 
 
